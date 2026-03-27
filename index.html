@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachintha Deshan | Portfolio</title>
+    <style>
+        /* CSS Styles */
+        :root {
+            --primary-color: #0d2149;
+            /* Deep Navy from portfolio */
+            --secondary-color: #f0f4f8;
+            --accent-color: #ffb703;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--secondary-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        section {
+            padding: 4rem 5%;
+        }
+
+        h2.section-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        #hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #ffffff;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        .hero-text {
+            max-width: 60%;
+        }
+
+        .hero-text h2 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text h3 {
+            font-size: 1.5rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-img img {
+            width: 500px;
+            height: 500px;
+            border-radius: 10%;
+            object-fit: cover;
+
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #1a3a7a;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: var(--secondary-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            color: var(--primary-color);
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        /* Experience Section */
+        #experience {
+            background-color: #ffffff;
+        }
+
+        .timeline-item {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+        }
+
+        .timeline-item span {
+            display: block;
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .timeline-item ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: var(--secondary-color);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-tools {
+            font-size: 0.85rem;
+            color: #555;
+            background: var(--secondary-color);
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        /* Footer / Contact */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        footer h2 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .contact-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text {
+                max-width: 100%;
+                margin-top: 2rem;
+            }
+
+            nav ul {
+                display: none;
+                /* Add a hamburger menu here in production */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>SACHINTHA DESHAN</h1>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-text">
+            <h2>Sachintha Deshan</h2>
+            <h3>Engineer - Electronic and Automation</h3>
+            <p>A quick learner, analytical thinker, and dedicated team player with hands-on experience in electronic,
+                industrial automation, electrical control systems, PLC programming, and power system troubleshooting.
+            </p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+        <div class="hero-img">
+            <img src="assets/profile-photo.jpg" alt="Sachintha Deshan">
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Core Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">PLC Programming & SCADA</div>
+            <div class="skill-card">Industrial Sensors</div>
+            <div class="skill-card">SolidWorks Design</div>
+            <div class="skill-card">HMI Development</div>
+            <div class="skill-card">AI/ML & Computer Vision</div>
+            <div class="skill-card">Embedded Systems</div>
+            <div class="skill-card">PCB & Electrical Design</div>
+            <div class="skill-card">Python & C#</div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <div class="timeline-item">
+            <h3>Engineer - Electrical & Automation</h3>
+            <span>CIAP (Pvt) Ltd | April 2025 - Dec 2025 | Colombo, Sri Lanka</span>
+            <ul>
+                <li>Diagnosed and rectified faults in the main step-down transformer control circuit, ensuring reliable
+                    power distribution in cargo vessels.</li>
+                <li>Troubleshot monorail crane starboard-side hoisting and lowering mechanisms to restore safe lifting
+                    operations.</li>
+                <li>Investigated and resolved emergency generator auto-onload system failures.</li>
+                <li>Performed troubleshooting on the Ballast Water Treatment System (BWTS).</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Intern - Autonomation Engineer</h3>
+            <span>MAS KREEDA CAMPUS | Jul 2023 - Jan 2024 | Biyagama, Sri Lanka</span>
+            <ul>
+                <li>Executed PLC programming (Ladder, SFC, STL) and HMI development for automated sewing systems.</li>
+                <li>Performed PLC power-up, control panel wiring, and pneumatic system integration.</li>
+                <li>Designed automated machine components using SolidWorks CAD software.</li>
+                <li>Gained hands-on experience with CNC milling, routing, and lathe operations.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Key Projects & Innovations</h2>
+        <div class="project-grid">
+
+            <div class="project-card">
+                <img src="assets/robot-arm.jpg" alt="Vision-Based Robot Sewing">
+                <div class="project-content">
+                    <h3>Vision-Based Robot-Guided Sewing System</h3>
+                    <p>Automated the alignment and positioning of fabric panels using machine vision and an AL5D robotic
+                        arm. Integrated CNN-based deep learning models (VGG16) to identify fabric shape and predict
+                        rotation angles.</p>
+                    <div class="project-tools"><strong>Tools:</strong> Raspberry Pi 3, Camera Module, Arduino Uno,
+                        PCA9685 PWM Driver, Servo Motors</div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="assets/scada-system.jpg" alt="SCADA Distance Monitoring">
+                <div class="project-content">
+                    <h3>Distance Monitoring SCADA System</h3>
+                    <p>Designed a SCADA-based monitoring system for real-time distance measurement using an ultrasonic
+                        sensor. Developed a Python Tkinter GUI for data visualization and automated actuator control.
+                    </p>
+                    <div class="project-tools"><strong>Tools:</strong> Arduino, HC-SR04 Ultrasonic Sensor, Python,
+                        Serial Comm.</div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="assets/plc-water.jpg" alt="Automated Water System">
+                <div class="project-content">
+                    <h3>Automated Water Filling System</h3>
+                    <p>Implemented a PLC-based automated sequential process including tank-level detection, timed
+                        dispensing, and heating operations for industrial applications.</p>
+                    <div class="project-tools"><strong>Tools:</strong> Siemens S7-200 PLC, Ladder Logic, TIA Portal,
+                        Industrial Sensors</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Let's Connect</h2>
+        <p>Currently open for new opportunities in Instrumentation and Automation.</p>
+        <div class="contact-links">
+            <a href="mailto:s.deshankumara@gmail.com">s.deshankumara@gmail.com</a>
+            <a href="tel:+94717115974">+94 71 711 59 74</a>
+            <a href="https://linkedin.com/in/sachintha-kumara" target="_blank">LinkedIn</a>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.8rem; color: #aaa;">&copy; 2026 Sachintha Deshan. All Rights Reserved.
+        </p>
+    </footer>
+
+</body>
+
+</html>
